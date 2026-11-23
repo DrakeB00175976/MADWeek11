@@ -11,11 +11,9 @@ export default function TodoItem({ title, completed, onDelete }) {
       <Text style={styles.icon}>{completed ? "✅" : "⬜"}</Text>
       <Text style={[styles.title, completed && styles.done]}>{title}</Text>
 
-      {/* TODO 2: Add a Delete button here.
-          - Use <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
-          - Inside it, show <Text style={styles.deleteText}>Delete</Text>
-          The styles deleteButton and deleteText are already provided below.
-      */}
+      <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
+        <Text style={styles.deleteText}>Delete</Text>
+      </TouchableOpacity>
     </View>
   );
 }

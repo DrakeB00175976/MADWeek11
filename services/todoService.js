@@ -29,6 +29,7 @@ export async function fetchTodos() {
   return snapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
 }
 
+
 // ---------- Lab 11: Delete (YOU complete this) ----------
 
 /**

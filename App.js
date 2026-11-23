@@ -72,12 +72,16 @@ export default function App() {
   const handleDelete = async (id) => {
     try {
       // TODO 3a: YOUR CODE HERE
+     
+    // TODO 3a
+    await deleteTodo(id);
 
-      // TODO 3b (later replaced by TODO 6): YOUR CODE HERE
-    } catch (error) {
-      Alert.alert("Error", "Could not delete todo: " + error.message);
-    }
-  };
+    // TODO 3b
+    setTodos((current) => current.filter((todo) => todo.id !== id));
+  } catch (error) {
+    Alert.alert("Error", "Could not delete todo: " + error.message);
+  }
+};
 
   // TODO 5: Ask before deleting.
   //   Write confirmDelete(item) that calls the provided helper:
@@ -86,7 +90,8 @@ export default function App() {
   //   confirmDelete(item) instead of handleDelete(item.id).
   const confirmDelete = (item) => {
     // TODO 5: YOUR CODE HERE
-  };
+  confirmAction(`Delete "${item.title}"?`, () => handleDelete(item.id));
+};
 
   // ---------- Screen ----------
   return (
@@ -116,6 +121,8 @@ export default function App() {
             <TodoItem
               title={item.title}
               completed={item.completed}
+                onDelete={() => confirmDelete(item)}
+
               // TODO 4: Pass the delete function to the row:
               //   onDelete={() => handleDelete(item.id)}
               // (In TODO 5 you will change this to confirmDelete(item).)
