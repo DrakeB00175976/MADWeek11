@@ -238,4 +238,4 @@ const handleDelete = async (id) => {
 - **Mark as completed:** tap a todo to toggle `completed` using `updateDoc(doc(db, "todos", id), { completed: true })`
 - **Sort newest first:** use `query(todosCollection, orderBy("createdAt", "desc"))` in `fetchTodos`
 - **Clear completed:** add a button that deletes every todo where `completed` is true
- 
+ "# MADWeek11" 
